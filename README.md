@@ -4,7 +4,9 @@
 
 NOTE: This isn't fully finished YET so some bugs may occur
   
-  
+# TODO  
+
+* Redo CSS it is so bad I know.  
   
   
 # CHANGELOG  
