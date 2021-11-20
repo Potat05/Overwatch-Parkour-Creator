@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Overwatch Parkour Creator</title>
+        <link rel="icon" href="resource/favicon.jpg"></link>
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
+
+        <link rel="stylesheet" href="./style.css"></link>
+
+
+    </head>
+
+    <body>
+
+
+
+
+
+
+
+
+
+        <header class="importexport-blur">
+            <div class="title">
+                <img src="resource/logo--overwatch-7d38f33606_light.svg" onclick="location.href='https\://playoverwatch.com/'"></img>
+                <h1>Overwatch Parkour Creator</h1>
+            </div>
+
+            <div class="controls">
+
+                <button id="load">
+                    <i class="bi bi-upload"></i>
+                    Load
+                </button>
+                <button id="save">
+                    <i class="bi bi-download"></i>
+                    Save
+                </button>
+
+                
+                    <button id="github">
+                        <a href="https://github.com/Potat05">
+                            <i class="bi bi-github"></i>
+                            GitHub
+                        </a>
+                    </button>
+
+            </div>
+
+        </header>
+
+
+        
+        <div class="importexport-background"></div>
+        
+        <div id="import">
+            <textarea id="import-textarea" placeholder="Paste your map here"></textarea>
+            <button id="import-button">Import workshop rule</button>
+        </div>
+
+        <div id="export">
+            <textarea id="export-textarea" readonly placeholder="Uh oh! There seems to have been an error while parsing the parkour map."></textarea>
+            <button id="export-button">Copy workshop rule & exit.</button>
+        </div>
+
+
+
+        <main class="importexport-blur">
+            <div id="editor"></div>
+        </main>
+
+        <div class="extraScroll">What?</div>
+
+
+        <script src="src/useful.js"></script>
+        <script src="src/vector.js"></script>
+        <script src="src/parkour_object.js"></script>
+
+        <script src="src/objects/object_none.js"></script>
+        <script src="src/objects/object_effect.js"></script>
+        <script src="src/objects/object_safesphere.js"></script>
+        <script src="src/objects/object_end.js"></script>
+
+
+        <script src="src/constants.js"></script>
+        <script src="src/parkour_level.js"></script>
+        <script src="src/parkour_map.js"></script>
+        
+        <script src="src/main.js"></script>
+
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+
+    </body>
+
+
+
+
+
+</html>
