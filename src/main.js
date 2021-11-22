@@ -20,6 +20,8 @@ document.querySelector("#editor").appendChild(parkour.node);
 
 
 
+// PAGE BLUR
+
 
 function blurOn() {
     document.querySelector(".importexport-background").style.display = "block";
@@ -41,29 +43,41 @@ function blurOff() {
 
 
 
+
+// BACKGROUND CLICK / CANCEL
+
+
+
 document.querySelector(".importexport-background").addEventListener("click", () => {
+    document.querySelector(".import-div").style.display = "none";
+    document.querySelector(".export-div").style.display = "none";
     blurOff();
-    document.querySelector("#import").style.display = "none";
-    document.querySelector("#export").style.display = "none";
 });
 
-document.querySelector("#load").addEventListener("click", () => {
 
+
+// IMPORTING
+
+document.querySelector("#import").addEventListener("click", () => {
+    document.querySelector(".import-div").style.display = "block";
     blurOn();
-    document.querySelector("#import").style.display = "block";
-});
-
-document.querySelector("#save").addEventListener("click", () => {
-
-    document.querySelector("#export-textarea").innerHTML = parkour.parse();
-
-    blurOn();
-    document.querySelector("#export").style.display = "block";
 });
 
 document.querySelector("#import-button").addEventListener("click", () => {
+    document.querySelector(".import-div").style.display = "none";
     blurOff();
-    document.querySelector("#import").style.display = "none";
+});
+
+
+
+// EXPORTING
+
+document.querySelector("#export").addEventListener("click", () => {
+
+    document.querySelector("#export-textarea").innerHTML = parkour.parse();
+
+    document.querySelector(".export-div").style.display = "block";
+    blurOn();
 });
 
 document.querySelector("#export-button").addEventListener("click", () => {
@@ -73,6 +87,6 @@ document.querySelector("#export-button").addEventListener("click", () => {
         alert("Could not copy text.");
     });
 
+    document.querySelector(".export-div").style.display = "none";
     blurOff();
-    document.querySelector("#export").style.display = "none";
 });

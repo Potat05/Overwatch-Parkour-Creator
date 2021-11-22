@@ -42,11 +42,11 @@ class Parkour_Object_Effect extends Parkour_Object {
             </div>
             </div>
 
-            <div class="node node-header">
+            <div class="node node-header vector">
                 <label>Position</label>
-                <input type="number" class="number posX" onChange="parkour.queryID(${this.id}).set()" value="${this.pos.x}">
-                <input type="number" class="number posY" onChange="parkour.queryID(${this.id}).set()" value="${this.pos.y}">
-                <input type="number" class="number posZ" onChange="parkour.queryID(${this.id}).set()" value="${this.pos.z}">
+                <input type="number" class="number x posX" onChange="parkour.queryID(${this.id}).set()" value="${this.pos.x}">
+                <input type="number" class="number y posY" onChange="parkour.queryID(${this.id}).set()" value="${this.pos.y}">
+                <input type="number" class="number z posZ" onChange="parkour.queryID(${this.id}).set()" value="${this.pos.z}">
             </div>
 
             <div class="node node-header effectRadius">
@@ -68,5 +68,17 @@ class Parkour_Object_Effect extends Parkour_Object {
         }
 
         this.node.appendChild(node);
+    }
+
+
+
+
+
+    length() {
+        return super.length() + 4;
+    }
+
+    parse() {
+        return `${super.parse()}, ${EFFECT_TYPES.indexOf(this.effectType)}, ${this.pos.parse()}, ${this.radius}, ${Vector.fromHex(this.color).parseColor()}`;
     }
 }

@@ -4,7 +4,7 @@
 class Parkour_Level {
     constructor() {
         this.hero = OVERWATCH_HEROES[0];
-        this.startPosition = new Vector();
+        this.startPos = new Vector();
         this.groundOption = GROUND_OPTIONS[0];
         this.objects = [];
 
@@ -77,9 +77,9 @@ class Parkour_Level {
 
         this.hero = this.node.querySelector(".heroSelect").value;
 
-        this.startPosition.x = parseFloat(this.node.querySelector(".startPositionX").value);
-        this.startPosition.y = parseFloat(this.node.querySelector(".startPositionY").value);
-        this.startPosition.z = parseFloat(this.node.querySelector(".startPositionZ").value);
+        this.startPos.x = parseFloat(this.node.querySelector(".startPosX").value);
+        this.startPos.y = parseFloat(this.node.querySelector(".startPosY").value);
+        this.startPos.z = parseFloat(this.node.querySelector(".startPosZ").value);
 
         this.groundOption = this.node.querySelector(".groundOptionSelect").value;
 
@@ -109,11 +109,11 @@ class Parkour_Level {
                     <select class="heroSelect" onChange="parkour.queryID(${this.id}).set()">${SELECT_OPTIONS.heroes}</select>
                 </div>
             
-                <div class="node node-header">
+                <div class="node node-header vector">
                     <label>Start Position</label>
-                    <input class="number startPositionX" type="number" onChange="parkour.queryID(${this.id}).set()" value="${parkour.queryID(this.id).startPosition.x}"></input>
-                    <input class="number startPositionY" type="number" onChange="parkour.queryID(${this.id}).set()" value="${parkour.queryID(this.id).startPosition.y}"></input>
-                    <input class="number startPositionZ" type="number" onChange="parkour.queryID(${this.id}).set()" value="${parkour.queryID(this.id).startPosition.z}"></input>
+                    <input class="number x startPosX" type="number" onChange="parkour.queryID(${this.id}).set()" value="${parkour.queryID(this.id).startPos.x}"></input>
+                    <input class="number y startPosY" type="number" onChange="parkour.queryID(${this.id}).set()" value="${parkour.queryID(this.id).startPos.y}"></input>
+                    <input class="number z startPosZ" type="number" onChange="parkour.queryID(${this.id}).set()" value="${parkour.queryID(this.id).startPos.z}"></input>
                 </div>
 
                 <div class="node node-header">
@@ -172,5 +172,26 @@ class Parkour_Level {
         this.node = document.createElement("div");
         this.node.classList.add("node");
         this.updateNode();
+    }
+
+
+
+
+
+
+    length() {
+        let len = 4;
+        for(let obj of this.objects) {
+            len += obj.length();
+        }
+        return len;
+    }
+
+    parse() {
+        let str = `${this.length()}, Hero(${this.hero}), ${this.startPos.parse()}, ${GROUND_OPTIONS.indexOf(this.groundOption)}`;
+        if(this.objects.length > 0) {
+            str += `, ${this.objects.map((obj) => obj.parse()).join(", ")}`;
+        }
+        return str;
     }
 }

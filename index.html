@@ -35,13 +35,13 @@
 
             <div class="controls">
 
-                <button id="load">
-                    <i class="bi bi-upload"></i>
-                    Load
+                <button id="import">
+                    <i class="bi bi-box-arrow-in-down"></i>
+                    Import
                 </button>
-                <button id="save">
-                    <i class="bi bi-download"></i>
-                    Save
+                <button id="export">
+                    <i class="bi bi-box-arrow-down"></i>
+                    Export
                 </button>
 
                 
@@ -60,40 +60,52 @@
         
         <div class="importexport-background"></div>
         
-        <div id="import">
+        <div class="import-div">
             <textarea id="import-textarea" placeholder="Paste your map here"></textarea>
             <button id="import-button">Import workshop rule</button>
         </div>
 
-        <div id="export">
+        <div class="export-div">
             <textarea id="export-textarea" readonly placeholder="Uh oh! There seems to have been an error while parsing the parkour map."></textarea>
-            <button id="export-button">Copy workshop rule & exit.</button>
+            <button id="export-button">Copy workshop rule.</button>
         </div>
-
-
 
         <main class="importexport-blur">
             <div id="editor"></div>
         </main>
 
+
+
+
         <div class="extraScroll">What?</div>
+
+
+
+        <div class="workshopCode importexport-blur">ZKB7H</div>
+
+
+
 
 
         <script src="src/useful.js"></script>
         <script src="src/vector.js"></script>
+		
         <script src="src/parkour_object.js"></script>
-
+		
         <script src="src/objects/object_none.js"></script>
         <script src="src/objects/object_effect.js"></script>
         <script src="src/objects/object_safesphere.js"></script>
         <script src="src/objects/object_end.js"></script>
-
+        <script src="src/objects/object_abilitymodifier.js"></script>
 
         <script src="src/constants.js"></script>
+
         <script src="src/parkour_level.js"></script>
         <script src="src/parkour_map.js"></script>
         
         <script src="src/main.js"></script>
+
+        <script src="src/testing.js"></script>
 
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

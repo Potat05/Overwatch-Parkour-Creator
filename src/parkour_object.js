@@ -88,4 +88,19 @@ class Parkour_Object {
         this.node.classList.add("node");
         this.updateNode();
     }
+
+
+
+
+
+
+    
+
+    length() {
+        return 2;
+    }
+
+    parse() {
+        return `${this.length()}, ${OBJECT_TYPES.indexOf(this.type)}`;
+    }
 }

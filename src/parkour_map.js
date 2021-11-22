@@ -154,14 +154,10 @@ rule("${ruleName}")
         Ongoing - Global;
     }
 
-    conditions
-    {
-        Current Map == Map(${WORKSHOP_MAP});
-    }
-
     actions
     {
-        Global._Map = Array();
+        Abort If(Current Map != Map(${WORKSHOP_MAP}));
+        Global._Map = Array(${this.levels.map((level) => level.parse()).join(", ")});
     }
 }
         `;

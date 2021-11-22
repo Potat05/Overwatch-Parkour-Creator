@@ -32,11 +32,11 @@ class Parkour_Object_LevelEnd extends Parkour_Object {
         node.classList.add("node-body");
 
         node.innerHTML = `
-            <div class="node node-header">
+            <div class="node node-header vector">
                 <label>Position</label>
-                <input type="number" class="number posX" onChange="parkour.queryID(${this.id}).set()" value="${this.pos.x}">
-                <input type="number" class="number posY" onChange="parkour.queryID(${this.id}).set()" value="${this.pos.y}">
-                <input type="number" class="number posZ" onChange="parkour.queryID(${this.id}).set()" value="${this.pos.z}">
+                <input type="number" class="number x posX" onChange="parkour.queryID(${this.id}).set()" value="${this.pos.x}">
+                <input type="number" class="number y posY" onChange="parkour.queryID(${this.id}).set()" value="${this.pos.y}">
+                <input type="number" class="number z posZ" onChange="parkour.queryID(${this.id}).set()" value="${this.pos.z}">
             </div>
 
             <div class="node node-header">
@@ -61,5 +61,19 @@ class Parkour_Object_LevelEnd extends Parkour_Object {
         `;
 
         this.node.appendChild(node);
+    }
+
+
+
+
+
+
+        
+    length() {
+        return super.length() + 3;
+    }
+
+    parse() {
+        return `${super.parse()}, ${this.pos.parse()}, ${this.radius}, ${new Vector(this.nextLevel, (this.ground ? 1 : 0)).parse()}`;
     }
 }

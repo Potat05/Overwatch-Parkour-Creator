@@ -1,10 +1,12 @@
 
 
-class Parkour_Object_SafeSphere extends Parkour_Object {
+class Parkour_Object_AbilityModifier extends Parkour_Object {
     constructor(level) {
-        super(level, OBJECT_TYPES[2], "When the player is in this sphere, They won't die from 'Kill on ground' option or lava objects.");
+        super(level, OBJECT_TYPES[4], "Modify the amount of times the player can use an ability when entered. (NOTE: The player always starts with every ability at 9999 uses)");
         this.pos = new Vector();
-        this.radius = 3;
+        this.radius = 99999;
+        this.ability = ABILITIES[0];
+        this.abilityUses = 0;
     }
 
     set() {
@@ -14,6 +16,9 @@ class Parkour_Object_SafeSphere extends Parkour_Object {
         this.pos.z = parseFloat(this.node.querySelector(".posZ").value);
 
         this.radius = parseFloat(this.node.querySelector(".radius").value);
+
+        this.ability = this.node.querySelector(".ability").value;
+        this.abilityUses = parseInt(this.node.querySelector(".abilityUses").value);
 
         this.updateNode();
     }
@@ -38,7 +43,19 @@ class Parkour_Object_SafeSphere extends Parkour_Object {
                 <input type="number" class="number radius" onChange="parkour.queryID(${this.id}).set()" value="${this.radius}">
             </div>
 
+            <div class="node node-header">
+                <label>Ability</label>
+                <select class="ability" onChange="parkour.queryID(${this.id}).set()">${SELECT_OPTIONS.abilities}</select>
+            </div>
+
+            <div class="node node-header">
+                <label>Ability Uses</label>
+                <input type="number" class="number abilityUses" onChange="parkour.queryID(${this.id}).set()" value="${this.abilityUses}">
+            </div>
         `;
+
+        node.querySelector(".ability").value = this.ability;
+
 
         this.node.appendChild(node);
     }
@@ -48,12 +65,12 @@ class Parkour_Object_SafeSphere extends Parkour_Object {
 
 
 
-    
+        
     length() {
-        return super.length() + 2;
+        return super.length() + 4;
     }
 
     parse() {
-        return `${super.parse()}, ${this.pos.parse()}, ${this.radius}`;
+        return `${super.parse()}, ${this.pos.parse()}, ${this.radius}, Ability Button(${this.ability}), ${this.abilityUses}`;
     }
 }

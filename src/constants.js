@@ -1,5 +1,8 @@
 
 
+
+
+
 // List of all overwatch maps
 const OVERWATCH_MAPS = [
     "Hanamura",
@@ -70,12 +73,12 @@ const OVERWATCH_HEROES = [
 
 
 
-
+const ABILITIES = ["Primary Fire", "Secondary Fire", "Ability 1", "Ability 2", "Ultimate Ability", "Interact", "Jump", "Crouch"];
 
 const GROUND_OPTIONS = ["Do nothing", "Kill on ground"];
 
-const OBJECT_TYPES = ["None", "Effect", "Safe Sphere", "Level End"];
-const OBJECT_CLASSES = [Parkour_Object_None, Parkour_Object_Effect, Parkour_Object_SafeSphere, Parkour_Object_LevelEnd];
+const OBJECT_TYPES = ["None", "Effect", "Safe Sphere", "Level End", "Ability Modifier"];
+const OBJECT_CLASSES = [Parkour_Object_None, Parkour_Object_Effect, Parkour_Object_SafeSphere, Parkour_Object_LevelEnd, Parkour_Object_AbilityModifier];
 
 const EFFECT_TYPES = ["Sphere", "Ring", "Light Shaft", "Orb"];
 const EFFECT_TYPE_ORB = EFFECT_TYPES[3];
@@ -95,6 +98,10 @@ const SELECT_OPTIONS = {
         return `<option>${map}</option>`;
     }).join(""),
 
+    abilities: ABILITIES.map((ability) => {
+        return `<option>${ability}</option>`
+    }).join(""),
+
     groundOptions: GROUND_OPTIONS.map((groundOption) => {
         return `<option>${groundOption}</option>`;
     }).join(""),
@@ -106,5 +113,7 @@ const SELECT_OPTIONS = {
     effectTypes: EFFECT_TYPES.map((effectType) => {
         return `<option>${effectType}</option>`;
     }).join("")
+
+
 
 }
