@@ -19,4 +19,5 @@ YYYY-MM-DD
 * 2021-11-20  
   * Basic exporting.  
   * Made repository.  
-  
+* 2021-11-21  
+  * Better exporting  
